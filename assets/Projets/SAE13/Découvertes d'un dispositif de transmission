@@ -1,58 +1,66 @@
 # Portfolio Télécommunications : Analyse des Dispositifs de Transmission
 
-Dans le cadre de mon cursus en BUT R&T (SAE 103), j'ai réalisé une série de travaux pratiques visant à modéliser, simuler et analyser le comportement physique des supports de transmission (Câbles à paires torsadées et coaxiaux).
+Dans le cadre de la SAE 103 (Réseaux et Télécommunications), j'ai mené une série d'études pratiques pour analyser le comportement physique des signaux sur différents supports de transmission.
 
-Voici le détail des compétences techniques développées et des résultats obtenus.
+Voici la synthèse technique de ces travaux, appuyée par les rapports de simulation originaux.
 
 ---
 
-## 1. Simulation de circuits et Loi d'Ohm
+## 1. Prise en main de la simulation (Diviseur Résistif)
 **Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](assets/pdf/Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
-L'objectif était de maîtriser l'outil de simulation SPICE à travers l'étude d'un diviseur de tension résistif.
-* [cite_start]**Modélisation :** Circuit avec deux résistances de $50\Omega$ et une source continue de 5V [cite: 463-464].
-* **Analyse :** Validation de la loi d'Ohm. [cite_start]La tension de sortie mesurée ($2.5V$) correspond parfaitement à la moitié de la tension d'entrée, validant le fonctionnement théorique[cite: 466].
-* **Compétence :** Lecture de chronogrammes de tension/courant et simulation de points de fonctionnement.
+Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
+* [cite_start]**Modélisation :** Conception d'un diviseur de tension avec deux résistances de 50 ohm et une source continue de 5V .
+* **Analyse :** Validation de la loi d'Ohm par simulation du point de fonctionnement (*Operating Point*). La tension de sortie mesurée de 2,5V confirme la division de tension théorique (V_{out} = V_{in}).
 
-## 2. Ligne de transmission (Câble Ethernet CAT6)
+## 2. Modélisation d'une ligne Ethernet (CAT6)
 **Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](assets/pdf/Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
-Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP**.
-* [cite_start]**Paramètres :** Calcul des constantes linéiques pour une impédance caractéristique $Z_c = 100\Omega$ et une vitesse de propagation de $0.67c$[cite: 290, 291].
-* [cite_start]**Résultats :** Inductance linéique $L=500 nH/m$ et capacité $C=50 pF/m$[cite: 316].
-* **Comportement fréquentiel :**
-    * [cite_start]À **100 Hz** : Le signal de sortie est quasi identique à l'entrée (atténuation négligeable sur 10m)[cite: 357].
-    * [cite_start]À **10 MHz** : Le câble agit comme un filtre passe-bas ; le signal est fortement atténué et déformé[cite: 368].
+Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**.
+* **Paramétrage :** Calcul des constantes linéiques pour une impédance Z_c = 100ohm et une vitesse v=0.67C(célérité).Résultats obtenus : L=500 nH/m$ et C=50 pF/m.
+* **Simulation temporelle :** Comparaison de la propagation d'impulsions à différentes fréquences.
+    * À **100 Hz** : Signal de sortie quasi identique à l'entrée.
+    * À **10 MHz** : Comportement de filtre passe-bas avéré, avec atténuation forte et déformation des fronts montants.
 
-## 3. Réponse en fréquence et Bande Passante
+## 3. Analyse Fréquentielle et Bande Passante
 **Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](assets/pdf/Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
-Analyse des limites du support via le diagramme de Bode.
-* **Filtrage :** Confirmation que le câble se comporte comme un filtre passe-bas. [cite_start]Jusqu'à 2 MHz, l'atténuation est nulle ($0 dB$), mais elle chute rapidement au-delà de 10 MHz[cite: 170, 174].
-* [cite_start]**Impact de la longueur :** Plus le câble est long, plus la bande passante se réduit et la fréquence de coupure diminue[cite: 137]. [cite_start]C'est un facteur limitant pour le débit (Norme Ethernet 100m max)[cite: 191].
+Étude spectrale complète (Diagramme de Bode) pour définir les limites du support.
+***Résonance :** Observation d'un pic de résonance (amplification du signal) entre 2 et 10 MHz avant la coupure.
+***Impact de la longueur :** Comparaison critique entre 1m, 10m et 100m.
+    * Sur **1m** : Atténuation très faible, bande passante large.
+    * Sur **100m** : La bande passante est drastiquement réduite et la fréquence de résonance se déplace vers les basses fréquences, confirmant la nécessité des répéteurs sur les longues distances.
 
-## 4. Génération de signaux et Échantillonnage
+## 4. Numérisation et Contraintes d'Échantillonnage
 **Outil :** Matlab / Simulink
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](assets/pdf/Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
-Étude des contraintes de numérisation.
-* **Problème :** Configuration d'un générateur d'impulsions (Pulse Generator).
-* [cite_start]**Constat :** Un pas d'échantillonnage (*Sample time*) inadapté (trop grand) empêche de reproduire le rapport cyclique voulu (20%), provoquant des erreurs de quantification[cite: 274, 282].
+Analyse des problèmes liés à la génération de signaux numériques.
+* **Problématique :** Configuration d'un *Pulse Generator* pour un signal de 1 kHz.
+* **Théorème de Shannon :** Mise en évidence qu'un pas d'échantillonnage (*Sample Time*) inadapté (ex: 0.5 ms pour une période de 1 ms) rend impossible la génération correcte d'un rapport cyclique de 20%, le système arrondissant la largeur d'impulsion à 0.
 
 ## 5. Propagation et Réflectométrie (TDR)
-**Outil :** Matlab / Simulink
+**Outil :** Matlab / Simulink (Bloc RLCG)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](assets/pdf/Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
-Simulation de la propagation d'une impulsion de 2ns.
-* [cite_start]**Vitesse :** Mesure d'un retard de 5ns pour 1m de câble, validant la vitesse théorique $v = 2\times10^8 m/s$[cite: 413, 414].
-* [cite_start]**Atténuation :** Perte de $-0.52 dB$ sur 1m[cite: 434]. [cite_start]Sur 25m, le retard atteint 125ns et l'atténuation $-4.8 dB$, avec une forte dispersion du signal[cite: 451, 452].
+Simulation fine de la propagation d'une impulsion ultra-courte (2ns) dans un câble CAT6.
+***Vitesse de propagation :** Mesure d'un retard de 5 ns pour 1m de câble, validant la vitesse théorique de 2\times10^8 m/s.
+* **Atténuation et Dispersion :**
+    * Sur **1m** : Perte de 0,52 dB.
+    * Sur **25m** : Le retard atteint 125 ns et l'atténuation monte à -4,8 dB, avec un effet de dispersion (étalement du signal) très visible.
 
-## 6. Synthèse : Câble Coaxial vs Longueur
+## 6. Synthèse : Comparatif Longueur sur Coaxial
 **Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP6](assets/pdf/Séance_TP6-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
-Étude comparative des fréquences de coupure (-3dB) sur un câble coaxial.
+Étude finale sur l'impact de la longueur sur la fréquence de coupure (-3dB) d'un câble coaxial.
 * **Résultats comparatifs :**
-    * [cite_start]**À 5m :** Fréquence de coupure à **3.97 MHz** (adapté aux signaux rapides/TV)[cite: 138].
-    * [cite_start]**À 20m :** Fréquence de coupure chute à **992 kHz** (atténuation trop forte pour la HF)[cite: 138, 156].
-* [cite_start]**Conclusion :** Nécessité absolue de respecter les longueurs maximales et d'adapter l'impédance ($75\Omega$) pour éviter les réflexions[cite: 158].
+    * **Câble de 5m :** Fréquence de coupure à **3.97 MHz**. Adapté aux signaux rapides (Vidéo/HF).
+    * **Câble de 20m :** Fréquence de coupure chute à **992 kHz. Inadapté aux hautes fréquences sans amplification.
+* **Conclusion :** Le câble se comporte comme un filtre dont la sévérité dépend directement de la longueur. Nécessité d'adapter l'impédance (75 ohm) pour éviter les réflexions.
 
 ---
 *Travaux réalisés en binôme avec Aicha Soulef Belgour.*
