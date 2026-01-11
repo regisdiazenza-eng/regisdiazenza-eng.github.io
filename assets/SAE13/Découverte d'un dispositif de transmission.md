@@ -16,7 +16,7 @@ Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
 
 ## 2. Modélisation d'une ligne Ethernet (CAT6)
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](assets/SAE13/Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**.
 * **Paramétrage :** Calcul des constantes linéiques pour une impédance Z_c = 100ohm et une vitesse v=0.67C(célérité).Résultats obtenus : L=500 nH/m$ et C=50 pF/m.
@@ -26,7 +26,7 @@ Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**
 
 ## 3. Analyse Fréquentielle et Bande Passante
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](assets/SAE13/Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Étude spectrale complète (Diagramme de Bode) pour définir les limites du support.
 ***Résonance :** Observation d'un pic de résonance (amplification du signal) entre 2 et 10 MHz avant la coupure.
