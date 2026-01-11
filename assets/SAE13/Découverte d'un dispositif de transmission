@@ -1,0 +1,66 @@
+# Portfolio Télécommunications : Analyse des Dispositifs de Transmission
+
+Dans le cadre de la SAE 103 (Réseaux et Télécommunications), j'ai mené une série d'études pratiques pour analyser le comportement physique des signaux sur différents supports de transmission.
+
+Voici la synthèse technique de ces travaux, appuyée par les rapports de simulation originaux.
+
+---
+
+## 1. Prise en main de la simulation (Diviseur Résistif)
+**Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](assets/SAE13/Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+
+Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
+* [cite_start]**Modélisation :** Conception d'un diviseur de tension avec deux résistances de 50 ohm et une source continue de 5V .
+* **Analyse :** Validation de la loi d'Ohm par simulation du point de fonctionnement (*Operating Point*). La tension de sortie mesurée de 2,5V confirme la division de tension théorique (V_{out} = V_{in}).
+
+## 2. Modélisation d'une ligne Ethernet (CAT6)
+**Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](assets/SAE13/Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+
+Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**.
+* **Paramétrage :** Calcul des constantes linéiques pour une impédance Z_c = 100ohm et une vitesse v=0.67C(célérité).Résultats obtenus : L=500 nH/m$ et C=50 pF/m.
+* **Simulation temporelle :** Comparaison de la propagation d'impulsions à différentes fréquences.
+    * À **100 Hz** : Signal de sortie quasi identique à l'entrée.
+    * À **10 MHz** : Comportement de filtre passe-bas avéré, avec atténuation forte et déformation des fronts montants.
+
+## 3. Analyse Fréquentielle et Bande Passante
+**Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](assets/SAE13/Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+
+Étude spectrale complète (Diagramme de Bode) pour définir les limites du support.
+***Résonance :** Observation d'un pic de résonance (amplification du signal) entre 2 et 10 MHz avant la coupure.
+***Impact de la longueur :** Comparaison critique entre 1m, 10m et 100m.
+    * Sur **1m** : Atténuation très faible, bande passante large.
+    * Sur **100m** : La bande passante est drastiquement réduite et la fréquence de résonance se déplace vers les basses fréquences, confirmant la nécessité des répéteurs sur les longues distances.
+
+## 4. Numérisation et Contraintes d'Échantillonnage
+**Outil :** Matlab / Simulink
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](assets/SAE13/Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+
+Analyse des problèmes liés à la génération de signaux numériques.
+* **Problématique :** Configuration d'un *Pulse Generator* pour un signal de 1 kHz.
+* **Théorème de Shannon :** Mise en évidence qu'un pas d'échantillonnage (*Sample Time*) inadapté (ex: 0.5 ms pour une période de 1 ms) rend impossible la génération correcte d'un rapport cyclique de 20%, le système arrondissant la largeur d'impulsion à 0.
+
+## 5. Propagation et Réflectométrie (TDR)
+**Outil :** Matlab / Simulink (Bloc RLCG)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](assets/SAE13/Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+
+Simulation fine de la propagation d'une impulsion ultra-courte (2ns) dans un câble CAT6.
+***Vitesse de propagation :** Mesure d'un retard de 5 ns pour 1m de câble, validant la vitesse théorique de 2\times10^8 m/s.
+* **Atténuation et Dispersion :**
+    * Sur **1m** : Perte de 0,52 dB.
+    * Sur **25m** : Le retard atteint 125 ns et l'atténuation monte à -4,8 dB, avec un effet de dispersion (étalement du signal) très visible.
+
+## 6. Synthèse : Comparatif Longueur sur Coaxial
+**Outil :** LTSpice
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP6](assets/SAE13/Séance_TP6-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+
+Étude finale sur l'impact de la longueur sur la fréquence de coupure (-3dB) d'un câble coaxial.
+* **Résultats comparatifs :**
+    * **Câble de 5m :** Fréquence de coupure à **3.97 MHz**. Adapté aux signaux rapides (Vidéo/HF).
+    * **Câble de 20m :** Fréquence de coupure chute à **992 kHz. Inadapté aux hautes fréquences sans amplification.
+* **Conclusion :** Le câble se comporte comme un filtre dont la sévérité dépend directement de la longueur. Nécessité d'adapter l'impédance (75 ohm) pour éviter les réflexions.
+
+---
+*Travaux réalisés en binôme avec Aicha Soulef Belgour.*
