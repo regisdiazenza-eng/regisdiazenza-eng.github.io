@@ -1,0 +1,58 @@
+# Portfolio Télécommunications : Analyse des Dispositifs de Transmission
+
+Dans le cadre de mon cursus en BUT R&T (SAE 103), j'ai réalisé une série de travaux pratiques visant à modéliser, simuler et analyser le comportement physique des supports de transmission (Câbles à paires torsadées et coaxiaux).
+
+Voici le détail des compétences techniques développées et des résultats obtenus.
+
+---
+
+## 1. Simulation de circuits et Loi d'Ohm
+**Outil :** LTSpice
+
+L'objectif était de maîtriser l'outil de simulation SPICE à travers l'étude d'un diviseur de tension résistif.
+* [cite_start]**Modélisation :** Circuit avec deux résistances de $50\Omega$ et une source continue de 5V [cite: 463-464].
+* **Analyse :** Validation de la loi d'Ohm. [cite_start]La tension de sortie mesurée ($2.5V$) correspond parfaitement à la moitié de la tension d'entrée, validant le fonctionnement théorique[cite: 466].
+* **Compétence :** Lecture de chronogrammes de tension/courant et simulation de points de fonctionnement.
+
+## 2. Ligne de transmission (Câble Ethernet CAT6)
+**Outil :** LTSpice
+
+Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP**.
+* [cite_start]**Paramètres :** Calcul des constantes linéiques pour une impédance caractéristique $Z_c = 100\Omega$ et une vitesse de propagation de $0.67c$[cite: 290, 291].
+* [cite_start]**Résultats :** Inductance linéique $L=500 nH/m$ et capacité $C=50 pF/m$[cite: 316].
+* **Comportement fréquentiel :**
+    * [cite_start]À **100 Hz** : Le signal de sortie est quasi identique à l'entrée (atténuation négligeable sur 10m)[cite: 357].
+    * [cite_start]À **10 MHz** : Le câble agit comme un filtre passe-bas ; le signal est fortement atténué et déformé[cite: 368].
+
+## 3. Réponse en fréquence et Bande Passante
+**Outil :** LTSpice
+
+Analyse des limites du support via le diagramme de Bode.
+* **Filtrage :** Confirmation que le câble se comporte comme un filtre passe-bas. [cite_start]Jusqu'à 2 MHz, l'atténuation est nulle ($0 dB$), mais elle chute rapidement au-delà de 10 MHz[cite: 170, 174].
+* [cite_start]**Impact de la longueur :** Plus le câble est long, plus la bande passante se réduit et la fréquence de coupure diminue[cite: 137]. [cite_start]C'est un facteur limitant pour le débit (Norme Ethernet 100m max)[cite: 191].
+
+## 4. Génération de signaux et Échantillonnage
+**Outil :** Matlab / Simulink
+
+Étude des contraintes de numérisation.
+* **Problème :** Configuration d'un générateur d'impulsions (Pulse Generator).
+* [cite_start]**Constat :** Un pas d'échantillonnage (*Sample time*) inadapté (trop grand) empêche de reproduire le rapport cyclique voulu (20%), provoquant des erreurs de quantification[cite: 274, 282].
+
+## 5. Propagation et Réflectométrie (TDR)
+**Outil :** Matlab / Simulink
+
+Simulation de la propagation d'une impulsion de 2ns.
+* [cite_start]**Vitesse :** Mesure d'un retard de 5ns pour 1m de câble, validant la vitesse théorique $v = 2\times10^8 m/s$[cite: 413, 414].
+* [cite_start]**Atténuation :** Perte de $-0.52 dB$ sur 1m[cite: 434]. [cite_start]Sur 25m, le retard atteint 125ns et l'atténuation $-4.8 dB$, avec une forte dispersion du signal[cite: 451, 452].
+
+## 6. Synthèse : Câble Coaxial vs Longueur
+**Outil :** LTSpice
+
+Étude comparative des fréquences de coupure (-3dB) sur un câble coaxial.
+* **Résultats comparatifs :**
+    * [cite_start]**À 5m :** Fréquence de coupure à **3.97 MHz** (adapté aux signaux rapides/TV)[cite: 138].
+    * [cite_start]**À 20m :** Fréquence de coupure chute à **992 kHz** (atténuation trop forte pour la HF)[cite: 138, 156].
+* [cite_start]**Conclusion :** Nécessité absolue de respecter les longueurs maximales et d'adapter l'impédance ($75\Omega$) pour éviter les réflexions[cite: 158].
+
+---
+*Travaux réalisés en binôme avec Aicha Soulef Belgour.*
