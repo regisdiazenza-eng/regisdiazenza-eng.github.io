@@ -8,7 +8,7 @@ Voici la synthèse technique de ces travaux, appuyée par les rapports de simula
 
 ## 1. Prise en main de la simulation (Diviseur Résistif)
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](assets/SAE13/Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
 * [cite_start]**Modélisation :** Conception d'un diviseur de tension avec deux résistances de 50 ohm et une source continue de 5V .
