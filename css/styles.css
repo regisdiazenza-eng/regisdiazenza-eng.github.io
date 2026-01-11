@@ -10970,3 +10970,15 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+/* --- DÉBUT EFFET NÉON MENU --- */
+#sideNav .navbar-nav .nav-item .nav-link.active {
+    color: #ffffff !important; /* Texte blanc pur */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+                 0 0 15px rgba(255, 255, 255, 0.5); /* L'effet de brillance */
+    background-color: rgba(255, 255, 255, 0.15); /* Fond légèrement éclairé */
+    border-left: 4px solid #fff; /* La petite barre blanche à gauche */
+    padding-left: 1rem; /* On décale le texte pour laisser la place à la barre */
+    font-weight: 700; /* On met en gras */
+    transition: all 0.3s ease; /* Animation fluide */
+}
+/* --- FIN EFFET NÉON MENU --- */
