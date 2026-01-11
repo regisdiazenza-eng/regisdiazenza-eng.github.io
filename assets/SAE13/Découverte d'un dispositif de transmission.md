@@ -36,7 +36,7 @@ Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**
 
 ## 4. Numérisation et Contraintes d'Échantillonnage
 **Outil :** Matlab / Simulink
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](assets/SAE13/Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Analyse des problèmes liés à la génération de signaux numériques.
 * **Problématique :** Configuration d'un *Pulse Generator* pour un signal de 1 kHz.
@@ -44,7 +44,7 @@ Analyse des problèmes liés à la génération de signaux numériques.
 
 ## 5. Propagation et Réflectométrie (TDR)
 **Outil :** Matlab / Simulink (Bloc RLCG)
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](assets/SAE13/Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
 Simulation fine de la propagation d'une impulsion ultra-courte (2ns) dans un câble CAT6.
 ***Vitesse de propagation :** Mesure d'un retard de 5 ns pour 1m de câble, validant la vitesse théorique de 2\times10^8 m/s.
