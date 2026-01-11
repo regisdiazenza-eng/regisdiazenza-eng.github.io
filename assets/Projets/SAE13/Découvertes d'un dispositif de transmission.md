@@ -8,7 +8,7 @@ Voici la synthèse technique de ces travaux, appuyée par les rapports de simula
 
 ## 1. Prise en main de la simulation (Diviseur Résistif)
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](assets/pdf/Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP1](assets/Projets/SAE13/Séance_TP1-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
 * [cite_start]**Modélisation :** Conception d'un diviseur de tension avec deux résistances de 50 ohm et une source continue de 5V .
@@ -16,7 +16,7 @@ Introduction à la simulation SPICE via l'étude d'un circuit fondamental.
 
 ## 2. Modélisation d'une ligne Ethernet (CAT6)
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](assets/pdf/Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP2](assets/Projets/SAE13/Séance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
 Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**.
 * **Paramétrage :** Calcul des constantes linéiques pour une impédance Z_c = 100ohm et une vitesse v=0.67C(célérité).Résultats obtenus : L=500 nH/m$ et C=50 pF/m.
@@ -26,7 +26,7 @@ Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**
 
 ## 3. Analyse Fréquentielle et Bande Passante
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](assets/pdf/Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP3](assets/Projets/SAE13/Séance_TP3-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
 Étude spectrale complète (Diagramme de Bode) pour définir les limites du support.
 ***Résonance :** Observation d'un pic de résonance (amplification du signal) entre 2 et 10 MHz avant la coupure.
@@ -36,7 +36,7 @@ Passage de la théorie à la réalité physique d'un câble **CAT6 U/UTP Draka**
 
 ## 4. Numérisation et Contraintes d'Échantillonnage
 **Outil :** Matlab / Simulink
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](assets/pdf/Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP4](assets/Projets/SAE13/Séance_TP4-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Analyse des problèmes liés à la génération de signaux numériques.
 * **Problématique :** Configuration d'un *Pulse Generator* pour un signal de 1 kHz.
@@ -44,7 +44,7 @@ Analyse des problèmes liés à la génération de signaux numériques.
 
 ## 5. Propagation et Réflectométrie (TDR)
 **Outil :** Matlab / Simulink (Bloc RLCG)
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](assets/pdf/Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP5](assets/Projets/SAE13/Séance_TP5-SAE13-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet (1).pdf)
 
 Simulation fine de la propagation d'une impulsion ultra-courte (2ns) dans un câble CAT6.
 ***Vitesse de propagation :** Mesure d'un retard de 5 ns pour 1m de câble, validant la vitesse théorique de 2\times10^8 m/s.
@@ -54,7 +54,7 @@ Simulation fine de la propagation d'une impulsion ultra-courte (2ns) dans un câ
 
 ## 6. Synthèse : Comparatif Longueur sur Coaxial
 **Outil :** LTSpice
-> 📄 **Preuve à l'appui :** [Consulter le rapport TP6](assets/pdf/Séance_TP6-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
+> 📄 **Preuve à l'appui :** [Consulter le rapport TP6](assets/Projets/SAE13/Séance_TP6-BELGOUR_Aicha_Soulef&DIAZENZA_MOUANDA_Regis_Japhet.pdf)
 
 Étude finale sur l'impact de la longueur sur la fréquence de coupure (-3dB) d'un câble coaxial.
 * **Résultats comparatifs :**
