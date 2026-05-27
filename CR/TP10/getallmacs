@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+import re
+import argparse
+
+parser = argparse.ArgumentParser(description="output in macs.txt the mac addresses present in a text file")
+parser.add_argument("file", help="text file containing mac addresses")
+args = parser.parse_args()
+
+# Mettre dans la variable text le contenu du fichier passé en paramètre
+
+# Chercher les matchs avec le bon motif
+motif = re.compile(r"\(w{1,2}:){3}\w{1,2}")
+matches = motif.finditer(args.file)
+r.encoding = "utf-8"
+for match in matches:
+    print(match.group())
+# Mettre les matchs dans le fichier macs.txt
+    with open("macs.txt") as f:
+        f.write(match.group)

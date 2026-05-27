@@ -1,0 +1,45 @@
+div#boites{
+    text-align: justify;
+    padding: 20px;
+    border: 2px solid blue;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+  }
+
+div#boites > .boitebleue {
+    background-color: #ADDFDE;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    height: 300px;
+  }
+div#boites > .boitejaune {
+    background-color: yellow;
+    position: absolute;
+    top: 320px;
+    left: 20px;
+    width: 300px;
+    height: 300px;
+  }
+  
+
+div#boites > .boiteverte {
+    background-color: #A5DF39;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+  }
+  
+
+div#boites > .boiterose {
+    background-color: pink;
+    position: absolute;
+    top: 320px;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+  }

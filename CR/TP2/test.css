@@ -1,0 +1,51 @@
+h1{
+    font-weight : bold;
+    font-style: italic;
+    color: blue;
+    background-color: yellow;
+}
+h2{
+    border : 3px dotted red;
+    font-family: "Trebuchet MS";
+    text-align: center;
+    margin : 20px;
+    padding :10px
+}
+p.ptype1 {
+    background-color: red;
+    font-family: Verdana ;
+    font-style: 6em;
+}
+
+p.ptype2:first-line {font-style: italic;}
+p.ptype2:first-letter {font-weight: bold; color: blue;}
+
+a.hulk:link {text-decoration: none; color: blue;}
+a.hulk:hover {text-transform: uppercase; color:green; font-size: 1.5em;}
+
+a.deuz:link{
+    text-decoration: none;
+    color: black;
+    font-style: normal;
+    font-weight: normal;
+}
+a.deuz:hover{
+    color: blue;
+    text-decoration: underline;
+    background-color: yellow;
+    font-weight: bold;
+    font-style: normal;
+}
+a.deuz:active{
+    color: red;
+    text-decoration: none;
+    background-color: silver;
+    font-weight: bold;
+    font-style: normal;
+}
+p.test::after{
+    content: " Quelque chose ajouté à tous les paragraphes de la classe test";
+}
+div[class*="test"] {
+    background: silver;
+}

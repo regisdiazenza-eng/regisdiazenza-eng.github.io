@@ -1,0 +1,32 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #e5f9ff;
+    border: 1px solid #555;
+}
+
+nav li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+nav li a:hover {
+    background-color: #3e92cc;
+    color: white;
+}
+nav li a.active {
+    background-color: #0a2463;
+    color: white;
+}
+nav li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+nav li:last-child {
+    
+    border-bottom: none;
+}

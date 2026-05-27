@@ -1,0 +1,33 @@
+div.form1 {
+    margin: auto;
+    background-color: silver ;
+    border-radius: 5px;
+    width: 50% ;
+    padding: 20px;     
+  }
+div.form1 input[type=text], div.form1 input[type=email], div.form1 input[type=password], div.form1 select {
+   width: 100%;
+      
+    border: none; 
+      
+    border-radius: 4px; 
+      
+    padding: 12px 20px; 
+      
+    margin: 8px 0; 
+      
+    box-sizing: border-box; 
+       
+  }
+div.form1 input[type=submit] {
+    background-color: gray;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  div.form1 input[type=submit]:hover {
+    background-color: #555;
+  }

@@ -1,0 +1,160 @@
+@media only screen and (min-width: 768px) {
+    /* Autres écrans d'une largeur minimum de 768px */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+
+  @media only screen and (min-width: 600px) {
+    /* Pour petits écrans / tablettes */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+
+/* Mobile-first : pour téléphones portables*/
+[class*="col-"] {
+    width: 100%;
+}
+* {
+    /* Les dimensions de marges internes et bordures sont incluses dans les largeurs et hauteurs des éléments*/
+    box-sizing: border-box;
+}
+
+/* On arrête chaque ligne par un retour à la ligne avec arrêt du positionnement flottant */
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+html {
+    /* Mettre la police Lucida Sans, sans-serif sinon. */
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    /* Couleur de fond #003466 */
+    background-color: #003466;
+    /* Texte en blanc */
+    color: white;
+    /* Marge interne 15 px */
+    padding: 15px;
+}
+.menu ul {
+    /* ce qu'il faut pour faire un menu vertical*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a{
+    /* Marges internes à 8 px */
+    /* Marge externe en bas à 7 px */
+    /* Couleur de fond #28d0d0 */
+    /* Texte en blanc */
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #28d0d0;
+    color: white;
+    
+    /* et ce qu'il faut pour un menu vertical*/
+    display: block ;
+    text-decoration: none;
+}
+  
+.menu li a:hover {
+    /* Couleur de fond #F23000 */
+    background-color: #F23000;    
+}
+
+.menu li a.active {
+    /* Couleur de fond #0D6889 */
+    background-color: #0D6889;    
+}
+
+.aside {
+    /* Couleur de fond #28d0d0 */
+    /* Texte en blanc */
+    /* Texte centré */
+    /* Taille de police 12 px */
+    /* Marge interne 15 px */    
+    
+    background-color: #28d0d0;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer {
+    /* Couleur de fond #003466 */
+    /* Texte en blanc */
+    /* Texte centré */
+    /* Taille de police 12 px */
+    /* Marge interne 15 px */
+    background-color: #003466;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;    
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+/* Mobile-first design */
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* On modifie pour petits écrans / tablettes */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* On modifie pour les autres écrans d'une largeur minimum de 768px */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}

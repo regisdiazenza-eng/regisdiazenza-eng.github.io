@@ -9,10 +9,394 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Royal Blue */
+            --primary-hover: #1d4ed8;
+            --accent-color: #dbeafe;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --card-hover-shadow: 0 20px 35px rgba(37, 99, 235, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--bg-gradient);
+            font-family: 'Muli', sans-serif;
+            color: #1e293b;
+        }
+
+        .resume-section-content {
+            padding-top: 5rem !important;
+            padding-bottom: 5rem !important;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .competence-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .competence-header h1 {
+            font-weight: 800;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .competence-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .ac-grid-container {
+            margin-bottom: 4rem;
+        }
+
+        .ac-grid-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .ac-grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .ac-grid-card .ac-badge {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            font-weight: 800;
+            padding: 0.35rem 0.85rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            width: fit-content;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            letter-spacing: 0.05em;
+        }
+
+        .ac-grid-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .ac-grid-card .explore-link {
+            color: #2563eb;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .ac-grid-card .explore-link i {
+            transition: var(--transition);
+        }
+
+        .ac-grid-card:hover .explore-link i {
+            transform: translateX(6px);
+        }
+
+        /* Detail section layout */
+        .detail-section-title {
+            font-weight: 800;
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-top: 5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .detail-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .ac-detail-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            border-top: 4px solid #e2e8f0;
+        }
+
+        .ac-detail-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .ac-detail-card.highlight-pulse {
+            animation: highlightPulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes highlightPulse {
+            0% {
+                box-shadow: 0 0 0 0px rgba(37, 99, 235, 0.6);
+                border-color: rgba(37, 99, 235, 0.6);
+                border-top-color: rgba(37, 99, 235, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(37, 99, 235, 0);
+                border-color: rgba(37, 99, 235, 0.3);
+                border-top-color: rgba(37, 99, 235, 0.9);
+            }
+            100% {
+                box-shadow: var(--card-shadow);
+                border-color: #e2e8f0;
+                border-top-color: var(--primary-color);
+            }
+        }
+
+        .ac-detail-card .detail-badge {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .ac-detail-card h3 {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .ac-detail-info-block {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ac-detail-info-block h6 {
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ac-detail-info-block p {
+            margin-bottom: 0;
+            color: #334155;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        /* Tools list */
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tool-tag {
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Proof Files and buttons */
+        .proof-section-header {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .proof-file-btn {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            color: #1e293b;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+
+        .proof-file-btn:hover {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.02);
+            color: #0f172a;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            text-decoration: none;
+        }
+
+        .proof-file-info {
+            margin-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proof-file-name {
+            font-weight: 750;
+            font-size: 0.98rem;
+            color: #0f172a;
+        }
+
+        .proof-file-size {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.15rem;
+        }
+
+        .proof-file-btn .btn-arrow {
+            color: #94a3b8;
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .proof-file-btn:hover .btn-arrow {
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        /* Screenshots section */
+        .evidence-screenshots-header {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .evidence-screenshots {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .evidence-img-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            width: calc(50% - 0.63rem);
+            min-width: 250px;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .evidence-img-container {
+                width: 100%;
+            }
+        }
+
+        .evidence-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .evidence-img-container:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+
+        .evidence-img-container:hover img {
+            transform: scale(1.04);
+        }
+
+        .evidence-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            gap: 0.5rem;
+        }
+
+        .evidence-img-container:hover .evidence-overlay {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body id="page-top">
-
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="index.html">
             <span class="d-block d-lg-none">Regis Japhet</span>
@@ -24,138 +408,419 @@
             </ul>
         </div>
     </nav>
-
+    
+    <!-- Page Content-->
     <div class="container-fluid p-0">
         <section class="resume-section">
             <div class="resume-section-content">
-                <h2 class="mb-5">Compétence : <span class="text-primary">Connecter</span></h2>
-                <p class="mb-4 text-muted">Cliquez sur un apprentissage critique pour découvrir les détails de sa mise
-                    en œuvre au Semestre 2.</p>
+                
+                <!-- Competence Header -->
+                <div class="competence-header">
+                    <h1>Connecter</h1>
+                    <p>
+                        Déployer des architectures réseaux de communication et maîtriser l'ingénierie physique du signal. 
+                        Ce pôle certifie une double expertise en configuration de systèmes de télécommunications/ToIP et en étude physique approfondie de la transmission de données (cuivre et fibre).
+                    </p>
+                </div>
 
-                <div class="d-flex flex-column mb-5">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                            data-bs-target="#modalAC1201">
-                            <h4 class="mb-0 text-primary"><i class="fa-solid fa-wave-square me-2"></i>AC12.01 - Mesurer,
-                                analyser et commenter les signaux</h4>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                            data-bs-target="#modalAC1202">
-                            <h4 class="mb-0 text-primary"><i class="fa-solid fa-calculator me-2"></i>AC12.02 -
-                                Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation
-                                mathématique de leur fonctionnement</h4>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                            data-bs-target="#modalAC1203">
-                            <h4 class="mb-0 text-primary"><i class="fa-solid fa-cable-car me-2"></i>AC12.03 - Déployer
-                                des supports de transmissions</h4>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                            data-bs-target="#modalAC1204">
-                            <h4 class="mb-0 text-primary"><i class="fa-solid fa-phone-volume me-2"></i>AC12.04 -
-                                Connecter les systèmes de ToIP</h4>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                            data-bs-target="#modalAC1205">
-                            <h4 class="mb-0 text-primary"><i class="fa-solid fa-comments me-2"></i>AC12.05 - Communiquer
-                                avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son
-                                interlocuteur</h4>
-                        </a>
-                    </div>
+                <!-- AC Grid Showcase -->
+                <div class="ac-grid-container">
+                    <h3 class="mb-4 fw-bold" style="color: #0f172a;">Apprentissages Critiques (AC)</h3>
+                    <p class="text-muted mb-4">Cliquez sur un apprentissage critique pour faire défiler la page et voir ses preuves et détails techniques correspondants.</p>
+                    
+                    <div class="row g-4">
+                        <!-- AC 12.01 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1201')">
+                                <span class="ac-badge">AC12.01</span>
+                                <h4>Mesurer, analyser et commenter les signaux physiques (oscilloscope, GBF)</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AC 12.02 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1202')">
+                                <span class="ac-badge">AC12.02</span>
+                                <h4>Caractériser des systèmes de transmissions élémentaires (spectre, modulations)</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="text-muted mt-5">
-                        <a href="index.html#compétences" class="btn btn-secondary"><i
-                                class="fa-solid fa-arrow-left"></i> Retour aux Compétences</a>
+                        <!-- AC 12.03 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1203')">
+                                <span class="ac-badge">AC12.03</span>
+                                <h4>Déployer des supports de transmissions physiques (cuivre Cat6, fibre optique)</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 12.04 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1204')">
+                                <span class="ac-badge">AC12.04</span>
+                                <h4>Connecter les systèmes de ToIP (Téléphonie IP, VLAN voix et WAN)</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 12.05 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1205')">
+                                <span class="ac-badge">AC12.05</span>
+                                <h4>Communiquer avec un tiers, vulgariser et formaliser des bilans techniques</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Detailed sections -->
+                <h2 class="detail-section-title">Dossier de Preuves Détaillé</h2>
+                <div class="ac-details-list">
+                    
+                    <!-- Detail AC12.01 -->
+                    <div class="ac-detail-card" id="AC1201">
+                        <span class="detail-badge">AC 12.01</span>
+                        <h3>Mesure, analyse et commentaire des signaux périodiques</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Travaux pratiques de laboratoire de physique appliquée pour l'évaluation de la qualité des signaux transmis.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Utilisation d'équipements de laboratoire (oscilloscopes et générateurs de signaux continus/périodiques). Montage de diviseurs résistifs, relevés de mesures de tension et de fréquence, et étude de la distorsion d'un signal électrique sur une ligne.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Oscilloscope de précision</span>
+                                <span class="tool-tag">Générateur basse fréquence (GBF)</span>
+                                <span class="tool-tag">Diviseur de tension</span>
+                                <span class="tool-tag">Interprétation de signaux périodiques</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-primary"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP1-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Séance TP1</span>
+                                        <span class="proof-file-size">PDF | Pont diviseur de tension résistif et mesures 5 V</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Séance TP2</span>
+                                        <span class="proof-file-size">PDF | Paramètres physiques de signaux et oscilloscopes</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC12.02 -->
+                    <div class="ac-detail-card" id="AC1202">
+                        <span class="detail-badge">AC 12.02</span>
+                        <h3>Modélisation mathématique et caractérisation des transmissions</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Ingénierie du signal appliquée, étude fréquentielle de transmission sur canaux de communication filaires.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Modélisation mathématique et physique des signaux dans le domaine fréquentiel (Séries de Fourier, harmoniques). Calculs d'affaiblissements linéiques en décibels (dB) et caractérisation théorique de filtres passifs.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Séries de Fourier & Harmoniques</span>
+                                <span class="tool-tag">Calcul du décibel (dB)</span>
+                                <span class="tool-tag">Analyse spectrale fréquentielle</span>
+                                <span class="tool-tag">Caractérisation de lignes</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-primary"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP3-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Séance TP3</span>
+                                        <span class="proof-file-size">PDF | Décomposition spectrale et calculs de puissance</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP4-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Séance TP4</span>
+                                        <span class="proof-file-size">PDF | Filtres passe-bas/passe-haut et modélisation</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="evidence-screenshots-header">
+                            <i class="fa-solid fa-image text-primary"></i> Preuves Visuelles : Calculs d'Impédances Complexes Manuscrits
+                        </div>
+                        <div class="evidence-screenshots">
+                            <div class="evidence-img-container">
+                                <img src="CR/WhatsApp%20Image%202026-05-27%20at%2021.05.34.jpeg" alt="Calculs d'impédances complexes" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Résolution complexe d'impédances (Partie 1)
+                                </div>
+                            </div>
+                            <div class="evidence-img-container">
+                                <img src="CR/WhatsApp%20Image%202026-05-27%20at%2021.05.36.jpeg" alt="Analyse de signaux périodiques" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Séries de Fourier et harmoniques (Partie 2)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC12.03 -->
+                    <div class="ac-detail-card" id="AC1203">
+                        <span class="detail-badge">AC 12.03</span>
+                        <h3>Déploiement physique et simulation de supports de transmission</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Projet majeur SAÉ 1.3 : Modélisation et simulation physique de la propagation sur des lignes de transmission guidées d'entreprise.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Simulation physique complète sous Matlab Simulink de la propagation d'une impulsion à travers un câble Ethernet Cat6 U/UTP de 100m. Calcul rigoureux des paramètres primaires de ligne (résistance linéique r, capacité linéique c, inductance linéique l) et de l'impédance caractéristique Zc du câble pour valider le signal.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Matlab / Simulink</span>
+                                <span class="tool-tag">Propagation d'impulsions (100m)</span>
+                                <span class="tool-tag">Câbles Ethernet Cat6 U-UTP</span>
+                                <span class="tool-tag">Paramètres primaires (r, c, l, Zc)</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-primary"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/S%C3%A9ance_TP5-SAE13-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport TP5 - SAE1.3</span>
+                                        <span class="proof-file-size">PDF | Simulation Simulink Cat6 & impulsions</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/S%C3%A9ance_TP6-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport TP6 - SAE1.3</span>
+                                        <span class="proof-file-size">PDF | Bilan physique et calculs d'impédances Zc</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/D%C3%A9couverte%20d'un%20dispositif%20de%20transmission.md" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-code text-info fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Découverte Dispositif</span>
+                                        <span class="proof-file-size">Markdown | Synthèse des supports filaires</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="evidence-screenshots-header">
+                            <i class="fa-solid fa-image text-primary"></i> Preuves Visuelles : Câblages Physiques Cisco en Salle de TP
+                        </div>
+                        <div class="evidence-screenshots">
+                            <div class="evidence-img-container">
+                                <img src="CR/WhatsApp%20Image%202026-05-27%20at%2021.05.31.jpeg" alt="Maquette d'équipements Cisco Catalyst" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Commutateur Catalyst et routeur ISR sur le banc
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC12.04 -->
+                    <div class="ac-detail-card" id="AC1204">
+                        <span class="detail-badge">AC 12.04</span>
+                        <h3>Réseaux de Télécommunications, ToIP et interconnexions WAN</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Déploiement d'architectures de commutation téléphonique (Asterisk, ToIP) et d'interconnexions réseaux longues distances WAN.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Virtualisation et conteneurisation d'OS d'infrastructures de téléphonie vocale. Configuration des paramètres d'interconnexions WAN physiques sur routeurs Cisco (Fréquence d'horloge de transmission Serial `clock rate 128000` et adresses de liaisons d'infrastructures).</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Virtualisation d'OS voix</span>
+                                <span class="tool-tag">Postes IP & Asterisk VoIP</span>
+                                <span class="tool-tag">Cisco Router WAN Serial CLI</span>
+                                <span class="tool-tag">Liaisons d'horloge (clock rate)</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-primary"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/Synth%C3%A8se%20des%20TP%204%2C%205%20et%206.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Synthèse de Virtualisation</span>
+                                        <span class="proof-file-size">PDF | Conteneurs et maquettes d'infrastructures ToIP</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Write_up_3.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up routeurs Cisco WAN</span>
+                                        <span class="proof-file-size">PDF | Liaisons série Gigabit/Serial et adressages</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC12.05 -->
+                    <div class="ac-detail-card" id="AC1205">
+                        <span class="detail-badge">AC 12.05</span>
+                        <h3>Formalisation de livrables et communication avec un tiers</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>SAÉ 1.2 : Rédaction et formalisation professionnelle de livrables finaux pour la conception réseau et système en équipe.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Co-conception de maquettes d'infrastructures de systèmes de données. Production de comptes-rendus complets, clairs et structurés facilitant la lecture des détails logiques par des tiers non-initiés ou des collaborateurs.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Comptes Rendus de synthèse</span>
+                                <span class="tool-tag">Spécifications techniques</span>
+                                <span class="tool-tag">Draw.io (Maquettage logique)</span>
+                                <span class="tool-tag">Esprit de Synthèse</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-primary"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="CR/Compte_rendu_final_DIAZENZA_MOUANDA__Regis_Japhet" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-folder-open text-warning fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Dossier : Livrable final d'intégration SAE1.2</span>
+                                        <span class="proof-file-size">Dossier de projet | Rapports écrits et modélisations Draw.io</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Back button -->
+                <div class="mt-5 text-center">
+                    <a href="index.html#compétences" class="btn btn-dark btn-lg shadow-sm">
+                        <i class="fa-solid fa-arrow-left me-2"></i> Retour aux Compétences BUT
+                    </a>
+                </div>
+
             </div>
         </section>
     </div>
 
-    <div class="modal fade" id="modalAC1201" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Détails AC12.01</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Objectif :</h6>
-                    <p>Utilisation d'outils de mesure (oscilloscope, analyseur de spectre) pour l'étude des signaux
-                        analogiques et numériques.</p>
-                    <hr>
-                    <h6>SAÉ associée :</h6>
-                    <p>SAÉ 1.3 - Étude de la transmission de données sur un support physique.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalAC1202" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Détails AC12.02</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Objectif :</h6>
-                    <p>Compréhension des modulations, de la bande passante et des atténuations à travers des modèles
-                        mathématiques rigoureux.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalAC1203" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Détails AC12.03</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Objectif :</h6>
-                    <p>Mise en place de câblages (paires torsadées, fibre optique) et configuration des équipements de
-                        raccordement.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalAC1204" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Détails AC12.04</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Objectif :</h6>
-                    <p>Installation et configuration de postes téléphoniques IP et initiation aux protocoles de voix sur
-                        IP.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalAC1205" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Détails AC12.05</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Objectif :</h6>
-                    <p>Capacité à vulgariser une solution technique en français et en anglais pour un interlocuteur
-                        non-expert.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function scrollToAC(acId) {
+            const targetElement = document.getElementById(acId);
+            if (targetElement) {
+                // Scroll smoothly to target element
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Add temporary class to animate border glow/pulse
+                targetElement.classList.remove('highlight-pulse');
+                // Trigger reflow
+                void targetElement.offsetWidth;
+                targetElement.classList.add('highlight-pulse');
+                
+                // Remove highlight after animation runs
+                setTimeout(() => {
+                    targetElement.classList.remove('highlight-pulse');
+                }, 2500);
+            }
+        }
+    </script>
 </body>
 
 </html>

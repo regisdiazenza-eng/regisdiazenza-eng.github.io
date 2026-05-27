@@ -9,9 +9,394 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary-color: #f59e0b; /* Amber */
+            --primary-hover: #d97706;
+            --accent-color: #fef3c7;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --card-hover-shadow: 0 20px 35px rgba(245, 158, 11, 0.12);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--bg-gradient);
+            font-family: 'Muli', sans-serif;
+            color: #1e293b;
+        }
+
+        .resume-section-content {
+            padding-top: 5rem !important;
+            padding-bottom: 5rem !important;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .competence-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .competence-header h1 {
+            font-weight: 800;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .competence-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .ac-grid-container {
+            margin-bottom: 4rem;
+        }
+
+        .ac-grid-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .ac-grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .ac-grid-card .ac-badge {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+            font-weight: 800;
+            padding: 0.35rem 0.85rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            width: fit-content;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            letter-spacing: 0.05em;
+        }
+
+        .ac-grid-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .ac-grid-card .explore-link {
+            color: #d97706;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .ac-grid-card .explore-link i {
+            transition: var(--transition);
+        }
+
+        .ac-grid-card:hover .explore-link i {
+            transform: translateX(6px);
+        }
+
+        /* Detail section layout */
+        .detail-section-title {
+            font-weight: 800;
+            font-size: 2.25rem;
+            color: #0f172a;
+            margin-top: 5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .detail-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .ac-detail-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            border-top: 4px solid #e2e8f0;
+        }
+
+        .ac-detail-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .ac-detail-card.highlight-pulse {
+            animation: highlightPulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes highlightPulse {
+            0% {
+                box-shadow: 0 0 0 0px rgba(245, 158, 11, 0.6);
+                border-color: rgba(245, 158, 11, 0.6);
+                border-top-color: rgba(245, 158, 11, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
+                border-color: rgba(245, 158, 11, 0.3);
+                border-top-color: rgba(245, 158, 11, 0.9);
+            }
+            100% {
+                box-shadow: var(--card-shadow);
+                border-color: #e2e8f0;
+                border-top-color: var(--primary-color);
+            }
+        }
+
+        .ac-detail-card .detail-badge {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .ac-detail-card h3 {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .ac-detail-info-block {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ac-detail-info-block h6 {
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ac-detail-info-block p {
+            margin-bottom: 0;
+            color: #334155;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        /* Tools list */
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tool-tag {
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Proof Files and buttons */
+        .proof-section-header {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .proof-file-btn {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            color: #1e293b;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+
+        .proof-file-btn:hover {
+            border-color: var(--primary-color);
+            background: rgba(245, 158, 11, 0.02);
+            color: #0f172a;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            text-decoration: none;
+        }
+
+        .proof-file-info {
+            margin-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proof-file-name {
+            font-weight: 750;
+            font-size: 0.98rem;
+            color: #0f172a;
+        }
+
+        .proof-file-size {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.15rem;
+        }
+
+        .proof-file-btn .btn-arrow {
+            color: #94a3b8;
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .proof-file-btn:hover .btn-arrow {
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        /* Screenshots section */
+        .evidence-screenshots-header {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .evidence-screenshots {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .evidence-img-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            width: calc(50% - 0.63rem);
+            min-width: 250px;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .evidence-img-container {
+                width: 100%;
+            }
+        }
+
+        .evidence-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .evidence-img-container:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+
+        .evidence-img-container:hover img {
+            transform: scale(1.04);
+        }
+
+        .evidence-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            gap: 0.5rem;
+        }
+
+        .evidence-img-container:hover .evidence-overlay {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body id="page-top">
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="index.html">
             <span class="d-block d-lg-none">Regis Japhet</span>
@@ -23,138 +408,588 @@
             </ul>
         </div>
     </nav>
+    
+    <!-- Page Content-->
     <div class="container-fluid p-0">
         <section class="resume-section">
             <div class="resume-section-content">
-                <h2 class="mb-5">Compétence : <span class="text-warning">Administrer</span></h2>
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1101">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-bolt me-2"></i>AC11.01 - Maîtriser les lois
-                            fondamentales de l'électricité afin d'intervenir sur des équipements de réseaux et
-                            télécommunications</h4>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1102">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-circle-nodes me-2"></i>AC11.02 - Comprendre
-                            l'architecture et les fondements des systèmes numériques, les principes du codage de
-                            l'information, des communications et de l'internet</h4>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1103">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-network-wired me-2"></i>AC11.03 - Configurer
-                            les fonctions de base du réseau local</h4>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1104">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-terminal me-2"></i>AC11.04 - Maîtriser les
-                            rôles et les principes fondamentaux des systèmes d'exploitation afin d'interagir avec
-                            ceux-ci pour la configuration et l'administration des réseaux et services fournis</h4>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1105">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-triangle-exclamation me-2"></i>AC11.05 -
-                            Identifier les dysfonctionnements du réseau local et savoir les signaler</h4>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0 ps-0" data-bs-toggle="modal"
-                        data-bs-target="#modalAC1106">
-                        <h4 class="mb-0 text-warning"><i class="fa-solid fa-desktop me-2"></i>AC11.06 - Installer un
-                            poste client, expliquer la procédure mise en place</h4>
+                
+                <!-- Competence Header -->
+                <div class="competence-header">
+                    <h1>Administrer</h1>
+                    <p>
+                        Gérer, superviser et configurer l'ensemble des infrastructures systèmes et des réseaux locaux d'entreprise. 
+                        Ce pôle certifie une solide expertise pratique dans l'administration d'équipements actifs (VLANs, trunks Cisco, routage statique, STP, EtherChannel) et le déploiement de serveurs virtualisés (Active Directory et conteneurs Docker).
+                    </p>
+                </div>
+
+                <!-- AC Grid Showcase -->
+                <div class="ac-grid-container">
+                    <h3 class="mb-4 fw-bold" style="color: #0f172a;">Apprentissages Critiques (AC)</h3>
+                    <p class="text-muted mb-4">Cliquez sur un apprentissage critique pour faire défiler la page et voir ses preuves réelles et détails techniques correspondants.</p>
+                    
+                    <div class="row g-4">
+                        <!-- AC 11.01 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1101')">
+                                <span class="ac-badge">AC11.01</span>
+                                <h4>Maîtriser les lois fondamentales de l'électricité afin d'intervenir sur des équipements de R&T</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AC 11.02 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1102')">
+                                <span class="ac-badge">AC11.02</span>
+                                <h4>Comprendre l'architecture et les fondements des systèmes numériques, du codage et de l'Internet</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 11.03 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1103')">
+                                <span class="ac-badge">AC11.03</span>
+                                <h4>Configurer les fonctions de base du réseau local (Cisco Switchs, VLANs, Trunks, STP, WAN)</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 11.04 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1104')">
+                                <span class="ac-badge">AC11.04</span>
+                                <h4>Maîtriser les rôles fondamentaux des OS pour administrer les services réseau et de conteneurisation</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 11.05 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1105')">
+                                <span class="ac-badge">AC11.05</span>
+                                <h4>Supervision, détection de pannes, pare-feu et signalement de dysfonctionnements réseaux</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AC 11.06 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="ac-grid-card" onclick="scrollToAC('AC1106')">
+                                <span class="ac-badge">AC11.06</span>
+                                <h4>Installer un poste client, configurer ses interfaces réseau CLI et expliquer la procédure</h4>
+                                <div class="explore-link">
+                                    Preuves & Détails <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed sections -->
+                <h2 class="detail-section-title">Dossier de Preuves Détaillé</h2>
+                <div class="ac-details-list">
+                    
+                    <!-- Detail AC11.01 -->
+                    <div class="ac-detail-card" id="AC1101">
+                        <span class="detail-badge">AC 11.01</span>
+                        <h3>Lois fondamentales de l'électricité et équipements R&T</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Travaux pratiques appliqués pour comprendre le fonctionnement électrique et l'alimentation des équipements physiques et matériels de réseaux.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Modélisation et montage de circuits électriques, application méthodique de la loi d'Ohm, de lois des mailles (loi de Kirchhoff) et calculs de tensions et intensités pour sécuriser le branchement d'équipements de communication.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Loi d'Ohm & Kirchhoff</span>
+                                <span class="tool-tag">Mesures physiques de circuits</span>
+                                <span class="tool-tag">Résistances & Générateurs</span>
+                                <span class="tool-tag">Multimètre & GBF</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP1-BELGOUR_Aicha_Soulef%26DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Séance TP1 - Circuits Résistifs</span>
+                                        <span class="proof-file-size">PDF | Pont diviseur de tension et modélisation</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/S%C3%A9ance_TP2-BELGOUR_Aicha_Soulef__DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Séance TP2 - signaux périodiques</span>
+                                        <span class="proof-file-size">PDF | Utilisation de l'oscilloscope en laboratoire</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="evidence-screenshots-header">
+                            <i class="fa-solid fa-image text-warning"></i> Preuves Visuelles : Théorèmes d'Électricité appliqués
+                        </div>
+                        <div class="evidence-screenshots">
+                            <div class="evidence-img-container">
+                                <img src="CR/WhatsApp%20Image%202026-05-27%20at%2021.03.36.jpeg" alt="Schéma manuscrit de mailles électriques" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Résolution manuscrite du circuit (Loi des mailles)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC11.02 -->
+                    <div class="ac-detail-card" id="AC1102">
+                        <span class="detail-badge">AC 11.02</span>
+                        <h3>Fondements des systèmes numériques, codage et modèle OSI</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Initiation à l'architecture informatique et aux bases des communications réseaux locaux et internet (R101/R102).</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Assimilation méthodique des couches du modèle de référence OSI et TCP/IP, conversions numériques de bases (binaire, hexadécimal) et validation d'adressage IP et d'encapsulations de données.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Modèle OSI / TCP-IP</span>
+                                <span class="tool-tag">Calcul binaire & hexadécimal</span>
+                                <span class="tool-tag">Ping & ICMP</span>
+                                <span class="tool-tag">Encapsulation</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/Compte_rendu%20TP6%20R101.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte Rendu TP6 (R101)</span>
+                                        <span class="proof-file-size">PDF | Vérifications de pings IP et adresses MAC de VMs</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/TP3%20R101.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport TP3 (R101)</span>
+                                        <span class="proof-file-size">PDF | Raccourcis OS et architecture système basique</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC11.03 -->
+                    <div class="ac-detail-card" id="AC1103">
+                        <span class="detail-badge">AC 11.03</span>
+                        <h3>Configuration réseau local d'entreprise (Cisco LAN Administration)</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Administration d'infrastructures réseaux locales et configuration d'équipements de routage et commutation Cisco en salle de TP.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Configuration physique et CLI de Switchs Cisco Catalyst : création de VLANs, trunks logiques 802.1Q, supervision de tables de commutation CAM. Déploiement et sécurisation des accès distants par cryptage de clés RSA et protocole SSH v2. Configuration du protocole Spanning Tree (STP) pour la redondance (élection de Root Bridge) et d'EtherChannel (agrégations LACP logiques). Configuration d'adresses d'interfaces WAN de routeurs Cisco.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Cisco Catalyst Switchs</span>
+                                <span class="tool-tag">Cisco ISR Routers</span>
+                                <span class="tool-tag">VLAN / Trunking 802.1Q</span>
+                                <span class="tool-tag">Spanning Tree Protocol (STP)</span>
+                                <span class="tool-tag">EtherChannel (LACP)</span>
+                                <span class="tool-tag">SSH / RSA Cryptographie</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/Write-up%20TP2.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP2 Cisco Switchs</span>
+                                        <span class="proof-file-size">PDF | Création VLAN, ports d'accès & Trunks</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/Write_up_TP1.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP1 Sécurisation</span>
+                                        <span class="proof-file-size">PDF | Accès SSH sécurisé sur Switch par clé RSA</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a href="CR/Write_up_TP5_R103.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP5 Spanning Tree</span>
+                                        <span class="proof-file-size">PDF | Activation STP et configurations d'EtherChannel</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/TP4_R103.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Spanning Tree (TP4)</span>
+                                        <span class="proof-file-size">PDF | Spanning Tree et élection du commutateur Root Bridge</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Write_up_3.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP3 Routeurs Cisco</span>
+                                        <span class="proof-file-size">PDF | Adressage et raccordement d'interfaces WAN série</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="evidence-screenshots-header">
+                            <i class="fa-solid fa-image text-warning"></i> Preuves Visuelles : Matériels Réseaux Réels configurés en TP
+                        </div>
+                        <div class="evidence-screenshots">
+                            <div class="evidence-img-container">
+                                <img src="CR/WhatsApp%20Image%202026-05-27%20at%2021.05.31.jpeg" alt="Maquette physique Cisco Catalyst et routeur ISR en salle de TP" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Commutateur Catalyst & routeur Cisco câblés sur le banc
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC11.04 -->
+                    <div class="ac-detail-card" id="AC1104">
+                        <span class="detail-badge">AC 11.04</span>
+                        <h3>Administration Système & Rôles des OS virtualisés et conteneurisés</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Installation de serveurs d'administration et d'infrastructures de machines virtuelles pour les réseaux d'entreprises (R202/SAÉ 2.3).</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Configuration de serveurs d'infrastructures d'administration centralisée Windows Server (Active Directory, comptes utilisateurs, gestion de droits, politiques GPO) et serveurs Linux d'administration. Gestion d'infrastructures de serveurs et bases de données conteneurisées avec Docker et déploiement multi-conteneurs réseaux via Docker Compose.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Windows Server Active Directory</span>
+                                <span class="tool-tag">Linux Server d'administration</span>
+                                <span class="tool-tag">Docker Containerisation</span>
+                                <span class="tool-tag">Docker Compose multi-réseaux</span>
+                                <span class="tool-tag">Bash / PowerShell scripts</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/TP_Windows_DIAZENZA_MOUANDA_Regis_Japhet.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport Windows Server Active Directory</span>
+                                        <span class="proof-file-size">PDF | contrôleurs de domaine, comptes et configuration IP</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte-rendus_TP_Administration_système/Compte-rendu_TP3_R202.odt" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-word text-primary fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte rendu TP3 (R202)</span>
+                                        <span class="proof-file-size">ODT | Droits d'accès et hiérarchies sous Linux</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte-rendus_TP_Administration_système/Compte-rendu_TP4_R202.odt" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-word text-primary fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte rendu TP4 (R202)</span>
+                                        <span class="proof-file-size">ODT | Automatisation par scripts Bash d'OS d'administration</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte-rendus_TP_Administration_système/Compte-rendu_TP5_R202.odt" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-word text-primary fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte rendu TP5 (R202)</span>
+                                        <span class="proof-file-size">ODT | Virtualisation et services serveurs d'OS</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="evidence-screenshots-header">
+                            <i class="fa-solid fa-image text-warning"></i> Preuves Visuelles : Administration d'Environnements Conteneurisés (SAÉ 2.3)
+                        </div>
+                        <div class="evidence-screenshots">
+                            <div class="evidence-img-container">
+                                <img src="CR/Capture%20d'e%C3%A9cran%202026-05-27%20211824.png" alt="Déploiement de conteneurs sous docker-compose" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Services de base de données PostgreSQL & application web
+                                </div>
+                            </div>
+                            <div class="evidence-img-container">
+                                <img src="CR/Capture%20d'e%C3%A9cran%202026-05-27%20211906.png" alt="Commandes d'administration Docker psql" />
+                                <div class="evidence-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Commande de connexion et psql CLI
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC11.05 -->
+                    <div class="ac-detail-card" id="AC1105">
+                        <span class="detail-badge">AC 11.05</span>
+                        <h3>Supervision, diagnostic et détection des pannes réseau</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Diagnostic de connectivité réseaux, captures d'encapsulations de paquets et sécurisation pare-feu.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Analyse et décodage de requêtes DNS Wireshark (ports de destination 53, captures UDP/IP). Supervision et édition programmée de paquets avec le script Python Scapy. Diagnostic de vulnérabilité de sécurité d'attaques d'ARP Spoofing. Administration et supervision de règles pare-feu `iptables` Linux (gestion de politiques DROP/ACCEPT et résolution de blocages SSH).</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Wireshark (DNS captures)</span>
+                                <span class="tool-tag">Python Scapy packet crafting</span>
+                                <span class="tool-tag">Linux iptables (Firewall CLI)</span>
+                                <span class="tool-tag">Redirections ARP / IP forward</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/Compte%20rendu%20TP3v2%20R102.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte rendu TP3 (R102)</span>
+                                        <span class="proof-file-size">PDF | Diagnostic trames DNS et UDP/IP</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte%20rendu%20TP4.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte Rendu TP4 Scapy</span>
+                                        <span class="proof-file-size">PDF | Édition de paquets et analyses IP sous Scapy</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte%20rendu%20TP5.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte Rendu TP5 Sécurité</span>
+                                        <span class="proof-file-size">PDF | Détection de pannes d'ARP spoofing et Kali root</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Wrote-up_9.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP9 Pare-feu</span>
+                                        <span class="proof-file-size">PDF | Supervision et règles pare-feu iptables (DROP/ACCEPT)</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail AC11.06 -->
+                    <div class="ac-detail-card" id="AC1106">
+                        <span class="detail-badge">AC 11.06</span>
+                        <h3>Installation et configuration des interfaces réseau du poste client</h3>
+                        
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-circle-info"></i> Contexte d'apprentissage</h6>
+                            <p>Installation de systèmes d'exploitation clients sur hyperviseurs et configuration réseau bas niveau.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-gears"></i> Actions et réalisations</h6>
+                            <p>Maîtrise complète de la configuration CLI réseau Linux client : attribution d'adresses d'interfaces (`ip a add`), activation/désactivation de cartes réseaux (`ip link set up/down`), configuration de routes IP statiques (`ip route add`). Résolution et consultation du cache ARP client (`ip n`, `ip -4 n`). Relevé de caractéristiques de postes clients sous Windows.</p>
+                        </div>
+
+                        <div class="ac-detail-info-block">
+                            <h6><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Technologies</h6>
+                            <div class="tools-container">
+                                <span class="tool-tag">Interface réseau client (ip a, ip link)</span>
+                                <span class="tool-tag">Configuration de routes (ip route)</span>
+                                <span class="tool-tag">Cache ARP client (ip neighbor)</span>
+                                <span class="tool-tag">Vérifications d'adresses CIDR / loopback</span>
+                            </div>
+                        </div>
+
+                        <div class="proof-section-header">
+                            <i class="fa-solid fa-file-shield text-warning"></i> Rapports de TP associés (dossier CR)
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="CR/Write_up_2.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Write-up TP2 Réseaux CLI</span>
+                                        <span class="proof-file-size">PDF | Administration des adresses et routes IP clients</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte_rendu_TP2.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte rendu TP2 ARP</span>
+                                        <span class="proof-file-size">PDF | Cache ARP et interfaces sous Linux</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/Compte_Rendu_TP4.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Compte Rendu TP4 IP</span>
+                                        <span class="proof-file-size">PDF | Interfaces d'adresses privées et notations CIDR</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="CR/TP2.pdf" class="proof-file-btn" target="_blank">
+                                    <i class="fa-solid fa-file-pdf text-danger fa-2x"></i>
+                                    <div class="proof-file-info">
+                                        <span class="proof-file-name">Rapport d'installation TP2</span>
+                                        <span class="proof-file-size">PDF | Caractéristiques matérielles et système Windows client</span>
+                                    </div>
+                                    <i class="fa-solid fa-download btn-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Back button -->
+                <div class="mt-5 text-center">
+                    <a href="index.html#compétences" class="btn btn-dark btn-lg shadow-sm">
+                        <i class="fa-solid fa-arrow-left me-2"></i> Retour aux Compétences BUT
                     </a>
                 </div>
-                <div class="mt-5"><a href="index.html#compétences" class="btn btn-secondary"><i
-                            class="fa-solid fa-arrow-left"></i> Retour</a></div>
+
             </div>
         </section>
     </div>
 
-    <div class="modal fade" id="modalAC1101" tabindex="-2" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.01</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Mesures de tension et courant (Loi d'Ohm) réalisées en TP d'électricité.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalAC1102" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.02</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Exercices de conversion binaire/hexadécimal et analyse du modèle OSI.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalAC1103" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.03</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Configuration d'adresses IP et test de connectivité (Ping) entre postes.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalAC1104" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.04</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Utilisation de la ligne de commande Linux/Windows pour administrer des services.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalAC1105" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.05</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Diagnostic de pannes simples lors des TP réseaux (câblage, mauvaise IP, équipement mal
-                        configuré).</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalAC1106" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title">Détails AC11.06</h5><button type="button" class="btn-close"
-                        data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Preuve :</h6>
-                    <p>Installation complète d'un OS et configuration logicielle de base.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function scrollToAC(acId) {
+            const targetElement = document.getElementById(acId);
+            if (targetElement) {
+                // Scroll smoothly to target element
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Add temporary class to animate border glow/pulse
+                targetElement.classList.remove('highlight-pulse');
+                // Trigger reflow
+                void targetElement.offsetWidth;
+                targetElement.classList.add('highlight-pulse');
+                
+                // Remove highlight after animation runs
+                setTimeout(() => {
+                    targetElement.classList.remove('highlight-pulse');
+                }, 2500);
+            }
+        }
+    </script>
 </body>
 
 </html>

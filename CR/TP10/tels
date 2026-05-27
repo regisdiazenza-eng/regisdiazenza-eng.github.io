@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import re
+import argparse
+import requests
+
+parser = argparse.ArgumentParser(description="e-mails associé à une url")
+parser.add_argument("url", type=str, help="url")
+args = parser.parse_args()
+
+proxies = {
+  "http": "http://cache-etu.univ-artois.fr:3128",
+  "https": "http://cache-etu.univ-artois.fr:3128",
+}
+
+motif = re.compile(r"\d\d(.\d\d){4}")
+r = requests.get(args.url, proxies = proxies)
+r.encoding = "utf-8"
+matches = motif.finditer(r.text)
+for match in matches:
+    print(match.group())

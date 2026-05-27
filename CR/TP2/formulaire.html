@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<title> TP n°2 - Habillage d'un formulaire </title>
+<link rel="stylesheet" href="formulaire.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<h1> Formulaire </h1>
+
+<div class="form1">
+  <form method="post" action="#">
+    <label for="prenom"><i class="fa fa-id-card" aria-hidden="true"></i> Prénom</label>
+    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom.."/>
+
+    <label for="nom"><i class="fa fa-id-card" aria-hidden="true"></i> Nom</label>
+    <input type="text" id="nom" name="nom" placeholder="Votre nom.."/>
+
+    <label for="courriel"><i class="fa fa-envelope-o" aria-hidden="true"></i> Courriel</label>
+    <input type="email" id="courriel" name="courriel" placeholder="Votre courriel.."/>
+
+    <label for="mdp"><i class="fa fa-key" aria-hidden="true"></i> Mot de passe</label>
+    <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe.."/>
+
+    <label for="groupe"><i class="fa fa-users" aria-hidden="true"></i> Groupe</label>
+    <select id="groupe" name="groupe">
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B1">B1</option>
+      <option value="B2">B2</option>
+    </select>
+
+    <input type="submit" value="Envoyer"/>
+  </form>
+</div>
+
+</body>
+</html> 

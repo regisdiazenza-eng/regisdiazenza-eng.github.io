@@ -1,0 +1,24 @@
+ *{
+
+    font-family: "verdana" ;
+    
+    }
+    
+    h1 {
+    
+    background-color: blue;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-image:url(linux.png) ;
+    padding: 25px;
+    
+    }
+    
+    p.exemple {
+    
+    background-position: left;
+    background-image: url(ex.png);
+    background-repeat: no-repeat;
+    padding: 50px;
+    
+    }

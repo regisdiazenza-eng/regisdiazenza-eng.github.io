@@ -1,0 +1,12 @@
+liste =[1, 4, 5, 67, 23.2, -12, 0]
+print(f"Premier élément = {liste[0]}")
+print(f"Dernier élément = {liste[6]}")
+print(f"3 premiers éléments = {liste[:3]}")
+print(f"3 derniers éléments ={liste[4:]}")
+print(f"Nombre d'éléments = {len(liste)}")
+print(f"Min = {min(liste)}")
+print(f"Max = {max(liste)}")
+liste.sort()
+print(f"Liste ordonnée de manière croissante ={liste} ")
+liste.sort(reverse=True)
+print(f"Liste ordonnée de manière décroissante = {liste}")

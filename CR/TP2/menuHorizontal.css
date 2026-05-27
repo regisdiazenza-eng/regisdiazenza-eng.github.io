@@ -1,0 +1,29 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #e5f9ff;
+    overflow: hidden; /*pour que les ul apparaissent (pour ne pas qu'il s'effondre)*/
+}
+
+nav li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #3e92cc;
+    color: white;
+}
+
+nav li a.active {
+    background-color: #0a2463;
+    color: white;
+}
+
+nav li {
+    float:left; /*place les li les uns à côtés des autres */
+    text-align: center;
+}

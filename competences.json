@@ -1,0 +1,207 @@
+{
+    "AC1101": {
+        "titre": "Maîtriser les lois fondamentales de l'électricité afin d'intervenir sur des équipements de réseaux et télécommunications",
+        "theme": "bg-warning",
+        "contexte": "Interventions sur équipements physiques en travaux pratiques d'électricité.",
+        "action": "Réalisation de mesures de tension et de courant, application de la loi d'Ohm pour valider le fonctionnement électrique.",
+        "outils": [
+            "Multimètre",
+            "Composants électroniques",
+            "Loi d'Ohm"
+        ],
+        "resultat": "Compréhension des fondements électriques nécessaires à l'intervention sur le matériel réseau."
+    },
+    "AC1102": {
+        "titre": "Comprendre l'architecture et les fondements des systèmes numériques, les principes du codage de l'information, des communications et de l'internet",
+        "theme": "bg-warning",
+        "contexte": "Étude théorique et pratique des bases de la communication numérique.",
+        "action": "Analyse du modèle OSI, conversions entre bases (binaire, hexadécimal) et étude de l'encapsulation des données.",
+        "outils": [
+            "Modèle OSI",
+            "Modèle TCP/IP",
+            "Calcul binaire"
+        ],
+        "resultat": "Assimilation de la structure des réseaux et du parcours de l'information."
+    },
+    "AC1103": {
+        "titre": "Configurer les fonctions de base du réseau local",
+        "theme": "bg-warning",
+        "contexte": "Déploiement de topologies réseaux simples en travaux pratiques.",
+        "action": "Configuration des interfaces (adressage IP), mise en place du routage de base et validation de la connectivité via des tests (ping, traceroute).",
+        "outils": [
+            "Cisco IOS",
+            "Packet Tracer",
+            "Commutateurs"
+        ],
+        "resultat": "Mise en réseau fonctionnelle de plusieurs postes de travail."
+    },
+    "AC1104": {
+        "titre": "Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation afin d'interagir avec ceux-ci pour la configuration et l'administration des réseaux et services fournis",
+        "theme": "bg-warning",
+        "contexte": "Administration de systèmes d'exploitation serveurs et clients.",
+        "action": "Utilisation avancée de l'interface en ligne de commande (CLI) sous Linux et Windows pour gérer les processus, les droits et les services.",
+        "outils": [
+            "Linux",
+            "Windows Server",
+            "Bash/PowerShell"
+        ],
+        "resultat": "Capacité à interagir efficacement avec un OS sans interface graphique."
+    },
+    "AC1105": {
+        "titre": "Identifier les dysfonctionnements du réseau local et savoir les signaler",
+        "theme": "bg-warning",
+        "contexte": "Interventions lors de TP d'infrastructures physiques et virtuelles.",
+        "action": "Diagnostic méthodique (couche par couche) pour résoudre des problèmes de câblage, corriger des erreurs d'adressage IP et reconfigurer des équipements.",
+        "outils": [
+            "Ping/Traceroute",
+            "Câbleur",
+            "Analyse de logs"
+        ],
+        "resultat": "Rétablissement rapide de la connectivité et sécurisation des accès réseau."
+    },
+    "AC1106": {
+        "titre": "Installer un poste client, expliquer la procédure mise en place",
+        "theme": "bg-warning",
+        "contexte": "Projet d'administration d'un domaine d'entreprise.",
+        "action": "Installation complète d'un système d'exploitation, déploiement d'Active Directory sur VirtualBox et intégration de postes clients au domaine.",
+        "outils": [
+            "VirtualBox",
+            "Windows",
+            "Active Directory"
+        ],
+        "resultat": "Environnement centralisé fonctionnel pour la gestion des utilisateurs."
+    },
+    "AC1201": {
+        "titre": "Mesurer, analyser et commenter les signaux",
+        "theme": "bg-primary",
+        "contexte": "SAÉ 1.3 : Étude de la transmission de données sur un support physique.",
+        "action": "Utilisation d'instruments de mesure pour analyser des signaux analogiques et numériques, et interprétation des résultats face aux attentes théoriques.",
+        "outils": [
+            "Oscilloscope",
+            "Analyseur de spectre",
+            "Générateur de signaux"
+        ],
+        "resultat": "Validation de la qualité du signal et compréhension des perturbations physiques."
+    },
+    "AC1202": {
+        "titre": "Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement",
+        "theme": "bg-primary",
+        "contexte": "Analyse approfondie des supports de communication.",
+        "action": "Application de modèles mathématiques pour comprendre les modulations, calculer la bande passante et évaluer les atténuations du signal.",
+        "outils": [
+            "Modèles mathématiques",
+            "Spectre fréquentiel"
+        ],
+        "resultat": "Compréhension théorique des limites et capacités d'un canal de transmission."
+    },
+    "AC1203": {
+        "titre": "Déployer des supports de transmissions",
+        "theme": "bg-primary",
+        "contexte": "Travaux pratiques sur l'infrastructure physique du réseau.",
+        "action": "Réalisation de câblages structurés (paires torsadées, raccordements optiques) et vérification de la conformité des liens créés.",
+        "outils": [
+            "Câblage cuivre",
+            "Fibre optique",
+            "Testeur de câble"
+        ],
+        "resultat": "Création d'une infrastructure physique fiable et respectant les normes."
+    },
+    "AC1204": {
+        "titre": "Connecter les systèmes de ToIP",
+        "theme": "bg-primary",
+        "contexte": "Déploiement de services de téléphonie sur un réseau de données.",
+        "action": "Installation et configuration de postes téléphoniques IP, attribution de VLANs dédiés à la voix et analyse des flux avec Wireshark.",
+        "outils": [
+            "Téléphones IP",
+            "VLANs Voix",
+            "Wireshark"
+        ],
+        "resultat": "Mise en place d'une communication VoIP fonctionnelle, fluide et isolée du trafic de données."
+    },
+    "AC1205": {
+        "titre": "Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur",
+        "theme": "bg-primary",
+        "contexte": "Présentation de solutions techniques réseau et cybersécurité.",
+        "action": "Vulgarisation de concepts complexes (en français et en anglais technique) lors de rendus de projets et rédaction de documentation.",
+        "outils": [
+            "Communication orale",
+            "Rédaction technique",
+            "Anglais"
+        ],
+        "resultat": "Échanges clairs et fluides avec des publics experts et non-experts."
+    },
+    "AC1301": {
+        "titre": "Utiliser un système informatique et ses outils",
+        "theme": "bg-info",
+        "contexte": "Mise en place de l'environnement de travail pour le développement.",
+        "action": "Installation et configuration d'IDE, manipulation avancée du shell Linux/Windows et gestion de l'arborescence des fichiers.",
+        "outils": [
+            "IDE (VS Code)",
+            "Shell (Bash)",
+            "Environnement virtuel"
+        ],
+        "resultat": "Espace de travail optimisé et prêt pour le développement de scripts complexes."
+    },
+    "AC1302": {
+        "titre": "Lire, exécuter, corriger et modifier un programme",
+        "theme": "bg-info",
+        "contexte": "Cours d'algorithmique et développement d'outils d'automatisation.",
+        "action": "Analyse de code source Python existant, identification de bugs (débogage), et refactorisation pour améliorer l'efficacité.",
+        "outils": [
+            "Python",
+            "Débogueur",
+            "Algorithmique"
+        ],
+        "resultat": "Code source fonctionnel, propre et maintenable."
+    },
+    "AC1303": {
+        "titre": "Traduire un algorithme, dans un langage et pour un environnement donné",
+        "theme": "bg-info",
+        "contexte": "Besoin d'extraire automatiquement des données en ligne.",
+        "action": "Développement d'un outil de Web Scraping en Python pour cibler, extraire et nettoyer des données spécifiques sur le web.",
+        "outils": [
+            "Python",
+            "BeautifulSoup",
+            "Selenium",
+            "Pandas"
+        ],
+        "resultat": "Génération automatique de fichiers de données (JSON/CSV) prêts à être analysés."
+    },
+    "AC1304": {
+        "titre": "Connaître l'architecture et les technologies d'un site Web",
+        "theme": "bg-info",
+        "contexte": "Création du portfolio professionnel en ligne.",
+        "action": "Conception d'une architecture web statique en intégrant HTML, CSS (Bootstrap) et JavaScript pour le dynamisme.",
+        "outils": [
+            "HTML5",
+            "CSS3 / Bootstrap",
+            "JavaScript"
+        ],
+        "resultat": "Interface web responsive, moderne et adaptée aux standards actuels."
+    },
+    "AC1305": {
+        "titre": "Choisir les mécanismes de gestion de données adaptés au développement de l'outil et argumenter ses choix",
+        "theme": "bg-info",
+        "contexte": "Stockage des données structurées issues du Web Scraping.",
+        "action": "Modélisation relationnelle, écriture de requêtes SQL complexes et intégration d'une base de données à une application web via Docker.",
+        "outils": [
+            "PostgreSQL",
+            "SQL",
+            "Flask",
+            "Docker"
+        ],
+        "resultat": "Base de données performante, évolutive et conteneurisée."
+    },
+    "AC1306": {
+        "titre": "S'intégrer dans un environnement propice au développement et au travail collaboratif",
+        "theme": "bg-info",
+        "contexte": "Déploiement de projets scolaires et de ce portfolio.",
+        "action": "Utilisation de Git pour le versioning du code et hébergement sur GitHub Pages et GitLab pour faciliter le travail d'équipe.",
+        "outils": [
+            "Git",
+            "GitHub Pages",
+            "GitLab"
+        ],
+        "resultat": "Code sécurisé, historique de modifications clair et déploiement continu du portfolio."
+    }
+}
